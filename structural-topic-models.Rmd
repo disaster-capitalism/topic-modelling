@@ -4,6 +4,7 @@ author: "Malte Lüken"
 date: '2022-06-14'
 output: html_document
 params:
+  json: ['scrape-corpus', 'studies_on_water_scraped']
   fit: False
 ---
 
@@ -40,7 +41,7 @@ exclude_sections = function(doc, terms) {
 
 # Read json files with scraped text from pdfs
 json_filenames = list.files(
-  file.path('..', 'scrape-corpus', 'studies_on_water_scraped'),
+  paste(params$json, collapse = .Platform$file.sep),
   full.names = TRUE
 )
 
@@ -537,3 +538,10 @@ ggplot(effects_final_type, aes(
   geom_hline(yintercept = 0, linetype = 'dashed')
 
 ```
+
+```{r show-session-info}
+
+sessionInfo()
+
+```
+

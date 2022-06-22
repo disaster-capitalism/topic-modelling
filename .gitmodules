@@ -1,0 +1,3 @@
+[submodule "scrape-corpus"]
+	path = scrape-corpus
+	url = https://github.com/disaster-capitalism/scrape-corpus.git
