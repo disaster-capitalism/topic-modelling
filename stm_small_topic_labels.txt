@@ -1,0 +1,45 @@
+7	prob	financ, invest, servic, countri, cost, sanit, develop, sector, project, provid	
+	frex	off-grid, landscape-bas, ing, blend, ment, bond, oba, repay, investor, mfis	
+	lift	landscape-bas, aaa-rat, acp-eu, actiam, acumen, aguatero, aiib, ail, ambac, anc	
+	score	off-grid, ing, financ, blend, landscape-bas, mpwi, mfis, oda, sub-sovereign, micro-fin	
+			
+2	prob	servic, manag, develop, sanit, tariff, wss, system, suppli, use, resourc	
+	frex	rayon, apacan, pripyat, kgs, cape, dnieper, moldova, minsk, nef, vodocan	
+	lift	aktob, ansrc, apel, arem, arnasi, atyrau, back-stop, baku, basarabeasca, biotica	
+	score	oblast, rayon, cape, dws, belarus, kgs, apacan, wss, dnieper, pripyat	
+			
+8	prob	use, manag, charg, basin, resourc, river, state, plan, user, cost	
+	frex	molit, ana, charg, meres, brazil, abstract, permit, rio, korea, pact	
+	lift	arnaud, bernard, daee, dong, environment-rel, fundo, fundrhi, jaguarib, paranaiba, paranapanema	
+	score	ana, molit, charg, pcj, meres, gerai, welf, recurso, basin, mafra	
+			
+3	prob	risk, climat, chang, agricultur, flood, adapt, increas, polici, impact, manag	
+	frex	punjab, hotspot, weather, precipit, asean, temp-fruit, temperatur, insur, extrem, sub-fruit	
+	lift	aacc, agrawala, agriinsur, agrist, agrometeorolog, aguilar, alpin, amarasingh, apterr, arnel	
+	score	punjab, asean, myanmar, climat, risk, temp-fruit, sub-fruit, hotspot, viet, chang	
+			
+5	prob	govern, stakehold, manag, engag, polici, citi, level, flood, process, principl	
+	frex	engag, stakehold, inclus, citi, principl, evolv, respond, process, checklist, trust	
+	lift	abelson, adattamento, alsac, area-fua, arno, arnstein, awi, bloschl, cambiamenti, camboriu	
+	score	stakehold, engag, govern, flood-risk, citi, bologna, principl, metropolitan, flood-rel, tick	
+			
+1	prob	servic, regul, sector, govern, oper, public, privat, project, manag, regulatori	
+	frex	pmu, siph, waj, jordan, interjurisdict, bueno, tnd, psp, tunisian, soned	
+	lift	balqa, bapin, bpeh, canilla, cgf, coirco, comparativo, conal, consommateur, dessal	
+	score	soned, ona, pmu, argentina, waj, bueno, tnd, tunisian, psp, siph	
+			
+9	prob	pollut, qualiti, manag, cost, agricultur, environment, polici, risk, use, pharmaceut	
+	frex	pharmaceut, toxicolog, api, diclofenac, antimicrobi, amr, pharmaci, boxal, metabolit, larsson	
+	lift	collin, diclofenac, toxicolog, abler, acetaminophen, acetylsalicyl, aculeatus, adeel, adler, adsorpt	
+	score	pharmaceut, api, antibiot, pharmaci, diclofenac, toxicolog, amr, antimicrobi, veterinari, cec	
+			
+4	prob	groundwat, use, irrig, agricultur, resourc, manag, alloc, countri, well, region	
+	frex	shardara, wikipedia, brozovi, koksaray, pump, groundwat, aquif, entitl, argyl, deplet	
+	lift	agclim, aitek, anarchi, annuitis, aral-low, archaeolog, ausmdb, baboo, benu, berga	
+	score	shardara, groundwat, margat, brozovi, kyzylorda, mpwi, syr, mpw, ougc, shpa	
+			
+6	prob	govern, polici, level, co-ordin, region, ministri, manag, resourc, nation, basin	
+	frex	mxn, cg, non-import, cchh, anam, marm, admin, conagua, serna, marn	
+	lift	cchh, non-import, accc, acqua, admin, administration, agenzia, aiv, amh, anb	
+	score	cg, conagua, mxn, lac, anam, cchh, marm, serna, marn, admin	
+			
