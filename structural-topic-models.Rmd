@@ -803,6 +803,115 @@ ggplot(doc_topic_prev_small_df, aes(x = doc_id, y = theta)) +
 
 ```
 
+```{r show-key-docs-small}
+
+key_docs_small = findThoughts(
+  model = stm_fit_small,
+  texts = names(docs_tokens),
+  topics = c(1:small_K),
+  n = 3,
+  thresh = 0.05
+)
+
+save_key_docs(key_docs_small, 'small')
+
+print(key_docs_small)
+
+```
+
+```{r set-k-8}
+
+# Set number of topics based on thematic topic 'clusters'
+K_8 = 8
+
+```
+
+
+```{r fit-stm-8, eval=params$fit}
+
+stm_fit_8 = stm(
+  docs_dfm,
+  K = K_8,
+  data = docvars(docs_dfm),
+  prevalence = ~ s(year) + s(finance) + type + region,
+  seed = 2022,
+  verbose = FALSE
+)
+
+save(stm_fit_8, file = 'stm_fit_8.RData')
+
+```
+
+```{r load-stm-8, eval=!params$fit}
+
+load('stm_fit_8.RData')
+
+```
+
+```{r plot-stm-8-diag}
+
+# Compute diagnostics for final STM
+topic_df_8 = compute_stm_diag(stm_fit_8, docs_dfm) %>%
+  mutate(id = row_number())
+
+p = ggplot(topic_df_8, aes(
+  x = coherence,
+  y = exclusivity,
+  color = correlated,
+  alpha = frequency,
+  label = id
+)) +
+  geom_point() +
+  geom_label_repel(max.overlaps = 20)
+
+ggMarginal(p, type = 'density')
+
+```
+
+```{r save-stm-8-topic-labels}
+
+# Save topic topic labels as txt and csv
+save_stm_topic_labels(stm_fit_8, topic_df_8, '8')
+
+```
+
+```{r plot-8-doc-topic-prevalences}
+
+doc_topic_prev_8_df = data.frame(
+  theta = as.vector(stm_fit_8$theta),
+  doc_id = rep(1:length(docs), K_8),
+  topic_id = rep(1:K_8, each = length(docs))
+)
+
+ggplot(doc_topic_prev_8_df, aes(x = doc_id, y = topic_id, fill = theta)) +
+  geom_tile()
+
+```
+
+```{r plot-8-key-docs}
+
+ggplot(doc_topic_prev_8_df, aes(x = doc_id, y = theta)) +
+  facet_wrap(vars(topic_id)) +
+  geom_point()
+
+```
+
+```{r show-key-docs-8}
+
+key_docs_8 = findThoughts(
+  model = stm_fit_8,
+  texts = names(docs_tokens),
+  topics = c(1:K_8),
+  n = 3,
+  thresh = 0.05
+)
+
+save_key_docs(key_docs_8, '8')
+
+print(key_docs_8)
+
+```
+
 ```{r show-session-info}
 
 sessionInfo()
