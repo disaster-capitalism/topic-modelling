@@ -1,0 +1,40 @@
+7	prob	financ, invest, servic, countri, cost, sanit, develop, sector, project, provid	
+	frex	ing, off-grid, landscape-bas, blend, bond, repay, investor, loan, mfis, credit	
+	lift	aesn, landscape-bas, lgugc, sab, sswsps, aaa-rat, acp-eu, actiam, activi-, acumen	
+	score	off-grid, financ, ing, blend, landscape-bas, mfis, mpwi, sub-sovereign, ment, wss	
+			
+3	prob	risk, agricultur, chang, climat, polici, increas, flood, manag, impact, use	
+	frex	api, diclofenac, antimicrobi, drm, amr, veterinari, pharmaceut, typhoon, punjab, larsson	
+	lift	aadmer, abler, accsp, acetaminophen, acetylsalicyl, acidifi, aconcagua, aculeatus, adeel, aep	
+	score	pharmaceut, punjab, api, antibiot, risk, asean, climat, myanmar, pharmaci, hotspot	
+			
+8	prob	use, manag, basin, charg, resourc, river, state, plan, user, pollut	
+	frex	molit, ana, charg, brazil, permit, mafra, welf, abstract, meres, korea	
+	lift	abha, acselrad, afluent, agb, agevap, akita-ken, amorim, analytica, angulo, apoio	
+	score	ana, molit, charg, pcj, welf, meres, gerai, basin, river, mafra	
+			
+2	prob	servic, manag, develop, sanit, tariff, wss, system, suppli, use, resourc	
+	frex	rayon, apacan, kgs, cape, pripyat, moldova, dnieper, nef, vodocan, town	
+	lift	ansrc, arnasi, atyrau, back-stop, baku, bln, brick, bwf, cahul, calm	
+	score	oblast, rayon, cape, belarus, dws, wss, kgs, apacan, dnieper, pripyat	
+			
+5	prob	govern, stakehold, manag, engag, polici, flood, level, citi, process, develop	
+	frex	engag, volkerak-zoomm, dutch, stakehold, westergouw, netherland, inclus, fit, rijswick, evolv	
+	lift	abelson, adecagua, alexandra, alsac, alsace-, arga, arhus, arno, arnstein, awi	
+	score	stakehold, engag, govern, flood-risk, volkerak-zoomm, netherland, westergouw, flood, polder, hagu	
+			
+1	prob	servic, regul, sector, govern, oper, public, privat, project, manag, regulatori	
+	frex	pmu, siph, waj, jordan, interjurisdict, bueno, tnd, psp, tunisian, soned	
+	lift	tnd, aaai, aasa, acm, aconquija, actualit, acumar, acwua, ada-provinci, aderasa	
+	score	soned, ona, pmu, waj, bueno, argentina, tnd, tunisian, siph, psp	
+			
+4	prob	groundwat, use, irrig, agricultur, resourc, manag, countri, alloc, region, well	
+	frex	shardara, margat, wikipedia, deplet, brozovi, koksaray, groundwat, pump, dri, argyl	
+	lift	acreage-reduct, adamowicz, ae, agarw, agclim, agriculteur, agriculture-induc, agro-econom, agwcond, agwloan	
+	score	shardara, groundwat, margat, brozovi, kyzylorda, mpwi, syr, mpw, shpa, koksaray	
+			
+6	prob	govern, polici, level, co-ordin, region, ministri, manag, resourc, nation, basin	
+	frex	mxn, cg, non-import, cchh, anam, marm, conagua, admin, marn, serna	
+	lift	cchh, non-import, accc, acqua, admin, administration, agenzia, aiv, amh, anb	
+	score	cg, mxn, lac, anam, cchh, conagua, marm, serna, marn, admin	
+			
