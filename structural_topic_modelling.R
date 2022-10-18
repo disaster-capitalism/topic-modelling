@@ -21,8 +21,6 @@ library(dplyr)
 library(stringr)
 library(tidyr)
 library(ggplot2)
-library(ggExtra)
-library(ggrepel)
 library(quanteda)
 library(stm)
 library(stminsights)
@@ -600,3 +598,6 @@ save_stm_topic_keywords(stm_fit_8, topic_freq_df_8, '8')
 key_docs_8 = get_key_docs(stm_fit_8, 8, 1:8)
 
 save_key_docs(key_docs_8, 8, '')
+
+# Save sessionInfo
+writeLines(capture.output(sessionInfo()), "session_info.txt")
