@@ -11,7 +11,9 @@ Finally, we estimate the effects of document covariates on topic prevalence.
 
 ## Structure
 The structure of the repository is as follows:
-- `lda/`: Contains initial jupyter notebooks for exploring the corpus and fitting Latent-Dirichlet-Allocation (LDA) topic models. Not used in the final analysis.
+- `notebooks/`: Contains initial jupyter notebooks for exploring the corpus and fitting Latent-Dirichlet-Allocation (LDA) and contextualized topic models (CTM). Only used for exploration but not included in the final analysis.
+  - `contextualized-topic-models-body.ipynb`: Applies CTM to the main bodies of the corpus documents.
+  - `contextualized-topic-models-summary.ipynb`: Applies CTM to the executive summaries of the corpus documents.
   - `exploratory-analysis.ipynb`: Explores the corpus with word counts and clouds.
   - `standard-lda-body.ipynb`: Applies LDA topic models to the main bodies of the corpus documents.
   - `standard-lda-summary.ipynb`: Applies LDA topic models to the executive summaries of the corpus documents.
@@ -38,7 +40,7 @@ git clone --recurse-submodules https://github.com/disaster-capitalism/topic-mode
 This will initialize the git submodule `scrape-corpus` and fetch its content.
 
 ## Requirements
-Running the analyses requires the scraped text from the pdf files of the corpus "Studies on Water" issued by the OECD. The scraped text must be stored in a json file. Checkout the instructions on the submodule [page](https://github.com/disaster-capitalism/scrape-corpus) on how to obtain these json files.
+Running the analyses requires the scraped text from the pdf files of the corpus "Studies on Water" issued by the OECD. The scraped text must be stored in a JSON file. Checkout the instructions on the submodule [page](https://github.com/disaster-capitalism/scrape-corpus) on how to obtain these JSON files.
 
 The STM analysis in written in R (version 4.1.2). The following R packages are required and can be installed by running the R command:
 
@@ -55,10 +57,12 @@ For specific details on package versions and reproducibility, see the `session_i
 
 ## Running the Analyses
 To reproduce the STM analysis pipeline, execute the R script `structural_topic_models.R`. Within the file two parameters can be set:
-- `json`: Relative path to the directory containing the json files with the scraped corpus text. The default is within in the submodule, i.e., `scrape-corpus/studies_on_water_scraped`.
+- `json`: Relative path to the directory containing the JSON files with the scraped corpus text. The default is within in the submodule, i.e., `scrape-corpus/studies_on_water_scraped`.
 - `fit`: Boolean whether to fit the structural topic models. If `FALSE`, saved model objects are loaded from the directory. Defaults to `FALSE`.
 
 ## References
+OECD (2022). OECD Studies on Water. https://doi.org/10.1787/22245081
+
 Roberts, M. E., Stewart, B. M., Tingley, D., & Airoldi, E. M. (2013, December). The structural topic model and applied social science. In *Advances in Neural Information Processing Systems Workshop on Topic Models: Computation, Application, and Evaluation* (Vol. 4, pp. 1-20).
 
 Roberts, M. E., Stewart, B. M., Tingley, D., Lucas, C., Leder‐Luis, J., Gadarian, S. K., ... & Rand, D. G. (2014). Structural topic models for open‐ended survey responses. *American Journal of Political Science, 58*(4), 1064-1082.
