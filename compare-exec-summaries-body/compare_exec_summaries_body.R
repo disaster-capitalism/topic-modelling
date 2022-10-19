@@ -14,11 +14,8 @@ params = list(
 library(rjson)
 library(dplyr)
 library(stringr)
-library(tibble)
 library(tidyr)
 library(ggplot2)
-library(ggExtra)
-library(ggrepel)
 library(quanteda)
 
 
