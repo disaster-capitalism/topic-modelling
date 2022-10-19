@@ -7,10 +7,18 @@ et al. 2019) to fit STMs with different numbers of topics to the corpus and
 compare the models using different diagnostic criteria, such as semantic coherence  and exclusivity. 
 We inspect the most probable and exclusive words for the estimated topics. 
 We also extract the documents in which topics are most prevalent for qualitative inspection.
-Finally, we estimate the effects of document covariates on topic prevalence.
+We estimate the effects of document covariates on topic prevalence.
+
+As a minor task, we compare word frequency metrics between the main text and the executive summaries of the documents.
 
 ## Structure
 The structure of the repository is as follows:
+- `compare-exec-summaries-body/`: Compares the executive summaries of the corpus with the main text.
+  - `compare_exec_summaries_body.R`: Script for running the comparison.
+  - `*_word_freq`: Word frequency plots.
+  - `*_word_prop`: Average word proportion across documents plots.
+  - `*_word_tf_idf`: Term frequency-inverse document frequency plots.
+  - `prop_dist`: Average proportion distance plots.
 - `notebooks/`: Contains initial jupyter notebooks for exploring the corpus and fitting Latent-Dirichlet-Allocation (LDA) and contextualized topic models (CTM). Only used for exploration but not included in the final analysis.
   - `contextualized-topic-models-body.ipynb`: Applies CTM to the main bodies of the corpus documents.
   - `contextualized-topic-models-summary.ipynb`: Applies CTM to the executive summaries of the corpus documents.
