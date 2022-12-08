@@ -1,0 +1,24 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Topic modelling and text analysis of the OECD
+  Studies on Water corpus.
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Malte
+    family-names: Lüken
+    email: m.luken@esciencecenter.nl
+    affiliation: Netherlands eScience Center
+    orcid: 'https://orcid.org/0000-0001-7095-203X'
+  - given-names: Kody
+    family-names: Moodley
+    email: k.moodley@esciencecenter.nl
+    affiliation: Netherlands eScience Center
+    orcid: 'https://orcid.org/0000-0001-5666-1658'
+license: Apache-2.0
+version: '0.1'
