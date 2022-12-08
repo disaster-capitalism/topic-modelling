@@ -9,6 +9,7 @@ message: >-
   If you use this software, please cite it using the
   metadata from this file.
 type: software
+date-released: 2022-12-08
 authors:
   - given-names: Malte
     family-names: Lüken
