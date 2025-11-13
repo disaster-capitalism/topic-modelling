@@ -17,6 +17,7 @@ library(stringr)
 library(tidyr)
 library(ggplot2)
 library(quanteda)
+library(SnowballC)
 
 
 # Prepare Corpus ----------------------------------------------------------
@@ -70,9 +71,28 @@ docs_corpus = corpus(
   docvars = data.frame(type = rep(c('body', 'exec'), each = 55))
 )
 
+selective_stem_helper <- function(x, exclude_stem, language) {
+  if (length(x) == 0) return(x)
+  s <- tokens_wordstem(tokens(x, what = "word2"), language = language)
+  exc <- s %in% exclude_stem
+  return(tokens_replace(s, rep(exclude_stem, sum(exc)), x[exc]))
+}
+
+# Function to exclude some tokesn from stemming but retain original tokens
+selective_stem <- function(tokens, exclude_stem, language) {
+  if (length(tokens) == 0) return(tokens)
+  new_tokens <- as.tokens(lapply(as.list(tokens), selective_stem_helper, exclude_stem = exclude_stem, language = language))
+  new_tokens$type <- tokens$type
+  return(new_tokens)
+}
+
+quanteda::quanteda_options(threads = 1)
+
 # Create tokenized corpus
 docs_tokens = docs_corpus %>%
+  # corpus_sample(size = 18) |>
   tokens(
+    what = "word2",
     remove_punct = TRUE,
     remove_symbols = TRUE,
     remove_numbers = TRUE,
@@ -91,12 +111,16 @@ docs_tokens = docs_corpus %>%
     stopwords('it')
   )) %>%
   tokens_keep(c('^[a-z]+-?[a-z]*$'), valuetype = 'regex') %>% # Keep only tokens with format [letters](-[letters])
-  tokens_wordstem(language = 'en') %>% # Stem words according to English
+  # Stem words according to English, but do not stem govern because we want to distinguish governance and government
+  selective_stem(exclude_stem = "govern", language = "en") %>%
   tokens_remove(c( # Remove redundant and overlooked tokens
     'oecd', 'water', 'et', 'al', 'x', 'pdf',
     'yes', 'abbrev', 'page', 'pp', 'p', 'er',
     'doi', 'can'
   ))
+
+docs_tokens %>%
+  tokens_keep(c("govern*"), valuetype = "regex")
 
 # Convert tokens to document frequency matrix
 dfm_body = docs_tokens %>%
@@ -147,6 +171,15 @@ ggsave(file.path(
   'body_word_freq.png'
 ), width = 7, height = 5)
 
+features_body %>% 
+  arrange(desc(feat_freq)) %>%
+  head(top_freq) %>%
+  select(feature, feat_freq) %>%
+  write.table(file.path(
+    "compare-exec-summaries-body",
+    "word_count_top_20_body.txt"
+  ), row.names = FALSE)
+
 features_exec %>% 
   arrange(desc(feat_freq)) %>%
   head(top_freq) %>%
@@ -154,6 +187,15 @@ features_exec %>%
   geom_col(fill = 'indianred', color = 'black') +
   labs(x = 'Frequency', y = 'Word stem') +
   scale_x_continuous(limits = c(0, 800))
+
+features_exec %>% 
+  arrange(desc(feat_freq)) %>%
+  head(top_freq) %>%
+  select(feature, feat_freq) %>%
+  write.table(file.path(
+    "compare-exec-summaries-body",
+    "word_count_top_20_exec.txt"
+  ), row.names = FALSE)
 
 ggsave(file.path(
   'compare-exec-summaries-body',
@@ -206,7 +248,7 @@ features_exec %>%
   ggplot(aes(x = tf_idf, y = reorder(feature, tf_idf))) +
   geom_col(fill = 'indianred', color = 'black') +
   labs(x = 'tf-idf', y = 'Word stem') +
-  scale_x_continuous(limits = c(0, 0.1))
+  scale_x_continuous(limits = c(0, 0.15))
 
 ggsave(file.path(
   'compare-exec-summaries-body',
@@ -233,4 +275,18 @@ features_inter %>%
 ggsave(file.path(
   'compare-exec-summaries-body',
   'prop_dist.png'
+), width = 7, height = 5)
+
+features_inter %>%
+  arrange(desc(feat_prop_dist)) %>%
+  mutate(is_top = row_number() <= top_freq) %>%
+  ggplot(aes(x = feat_prop_body, y = feat_prop_exec)) +
+  geom_point(alpha = 0.4, color = "indianred", size = 1) +
+  geom_text(aes(label = feature), check_overlap = TRUE, size = 3) +
+  geom_abline(slope = 1, intercept = 0) +
+  labs(x = "Proportion in main text", y = "Proportion in executive summary")
+
+ggsave(file.path(
+  "compare-exec-summaries-body",
+  "prop_scatter.png"
 ), width = 7, height = 5)
